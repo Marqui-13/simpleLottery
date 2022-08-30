@@ -23,7 +23,7 @@ contract Lottery {
         players.push(payable(msg.sender));
     }
 
-    // This function gets a random number for the pickWinner() function, no native random number generator in solidity, blockchain itself is a deterministic state machine which means that if you know the state of the system at any given pint in time any future states are predictible reiterating the lack of randomness in the blockchain(transparent)
+    // This function gets a random number for the pickWinner() function, no native random number generator in solidity, the blockchain itself is a deterministic state machine which means that if you know the state of the system at any given point in time, any future states are predictible reiterating the lack of randomness in the blockchain
     function getRandomNumber() public view returns (uint) {
         return uint(keccak256(abi.encodePacked(owner, block.timestamp)));
     }
